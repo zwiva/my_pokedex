@@ -1,0 +1,10 @@
+.tabPos-celda_signoMas::before {
+    content: url(https://desarrolloadaptatin.blob.core.windows.net/sistemaejercicios/ejercicios/Nivel-5/imagenes_front/simbolos/Suma.svg);
+    position: absolute;
+    border-radius: 50%;
+    left: -1px;
+    bottom: 15px;
+    z-index: 200;
+    height: 7px;
+    width: 8px;
+}
