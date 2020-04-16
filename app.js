@@ -1,16 +1,23 @@
-var pokemones = [1,2,3,4,175]
+var pokemones = 150;
+var content = document.getElementById('content');
 
-async function llamarPokemon(id){
-    for (let i = 0; i < id.length; i++) {
-        var url = `https://pokeapi.co/api/v2/pokemon/${id[i]}`;
+async function llamarPokemon(cantidad) {
+    for (let i = 1; i <= cantidad; i++) {
+        var url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         var pokemon = await fetch(url);
-        // console.log(pokemon); muestra el load (no el payload)
         var respuesta = await pokemon.json();
-        //console.log(respuesta.name);
-        document.write(respuesta.name);
+        crearTarjeta(respuesta);
     }
 }
-
-
 llamarPokemon(pokemones);
+
+function crearTarjeta(obj) {
+    let tarjeta = document.createElement('code');
+    tarjeta.classList.add('pokemon'); // agrego clase pokemon a la tarjeta
+    var htext = `<div class="info">${obj.name}</div>`;
+    tarjeta.innerHTML = htext;
+    // console.log(tarjeta);
+    content.appendChild(tarjeta);
+    // console.log(content);
+}
 
